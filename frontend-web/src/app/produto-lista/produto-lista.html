@@ -1,13 +1,17 @@
-<h1>StockFlow</h1>
-<a routerLink="/novo">+ Novo produto</a>
+<div class="topo">
+  <h1>StockFlow</h1>
+  <a routerLink="/novo" class="btn">+ Novo produto</a>
+</div>
 
-<label>Categoria:
-  <select [ngModel]="categoriaFiltro()" (ngModelChange)="categoriaFiltro.set($event)">
-    <option value="">Todas</option>
-    @for (c of categorias(); track c) { <option [value]="c">{{ c }}</option> }
-  </select>
-</label>
-<button (click)="carregar()">Atualizar</button>
+<div class="filtros">
+  <label>Categoria:
+    <select [ngModel]="categoriaFiltro()" (ngModelChange)="categoriaFiltro.set($event)">
+      <option value="">Todas</option>
+      @for (c of categorias(); track c) { <option [value]="c">{{ c }}</option> }
+    </select>
+  </label>
+  <button (click)="carregar()">Atualizar</button>
+</div>
 
 @if (erro()) { <p class="erro">{{ erro() }}</p> }
 
@@ -22,10 +26,14 @@
         <td>{{ p.categoria }}</td>
         <td>{{ p.quantidade }}</td>
         <td>{{ p.estoqueMinimo }}</td>
-        <td>{{ estoqueBaixo(p) ? '⚠️ Estoque baixo' : 'OK' }}</td>
         <td>
-          <a [routerLink]="['/editar', p.id]">Editar</a>
-          <button (click)="excluir(p)">Excluir</button>
+          <span class="badge" [class.badge-baixo]="estoqueBaixo(p)">
+            {{ estoqueBaixo(p) ? '⚠️ Estoque baixo' : 'OK' }}
+          </span>
+        </td>
+        <td class="acoes">
+          <a [routerLink]="['/editar', p.id]" class="btn secundario">Editar</a>
+          <button class="perigo" (click)="excluir(p)">Excluir</button>
         </td>
       </tr>
     }

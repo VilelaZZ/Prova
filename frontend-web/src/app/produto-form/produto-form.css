@@ -1,4 +1,13 @@
-form { display: flex; flex-direction: column; gap: 8px; max-width: 400px; }
-label { display: flex; flex-direction: column; font-weight: bold; }
-input { padding: 6px; }
-small, .erro { color: #a30000; }
+:host { display: block; max-width: 480px; margin: 0 auto; padding: 24px; }
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #fff;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.1);
+}
+label { display: flex; flex-direction: column; gap: 4px; font-weight: 600; font-size: 14px; }
+small, .erro { color: #dc2626; font-weight: normal; }

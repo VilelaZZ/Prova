@@ -1,0 +1,17 @@
+<h2>{{ id ? 'Editar' : 'Novo' }} produto</h2>
+<form [formGroup]="form" (ngSubmit)="salvar()">
+  <label>Nome <input formControlName="nome"></label>
+  @if (form.controls.nome.touched && form.controls.nome.invalid) { <small>Nome é obrigatório</small> }
+
+  <label>Descrição <input formControlName="descricao"></label>
+
+  <label>Categoria <input formControlName="categoria"></label>
+  @if (form.controls.categoria.touched && form.controls.categoria.invalid) { <small>Categoria é obrigatória</small> }
+
+  <label>Quantidade <input type="number" formControlName="quantidade"></label>
+  <label>Estoque mínimo <input type="number" formControlName="estoqueMinimo"></label>
+
+  @if (erro()) { <p class="erro">{{ erro() }}</p> }
+  <button type="submit">Salvar</button>
+  <a routerLink="/">Cancelar</a>
+</form>

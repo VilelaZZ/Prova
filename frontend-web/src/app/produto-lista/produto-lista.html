@@ -1,0 +1,33 @@
+<h1>StockFlow</h1>
+<a routerLink="/novo">+ Novo produto</a>
+
+<label>Categoria:
+  <select [ngModel]="categoriaFiltro()" (ngModelChange)="categoriaFiltro.set($event)">
+    <option value="">Todas</option>
+    @for (c of categorias(); track c) { <option [value]="c">{{ c }}</option> }
+  </select>
+</label>
+<button (click)="carregar()">Atualizar</button>
+
+@if (erro()) { <p class="erro">{{ erro() }}</p> }
+
+<table>
+  <thead>
+    <tr><th>Nome</th><th>Categoria</th><th>Qtd</th><th>Mínimo</th><th>Status</th><th>Ações</th></tr>
+  </thead>
+  <tbody>
+    @for (p of filtrados(); track p.id) {
+      <tr [class.baixo]="estoqueBaixo(p)">
+        <td>{{ p.nome }}</td>
+        <td>{{ p.categoria }}</td>
+        <td>{{ p.quantidade }}</td>
+        <td>{{ p.estoqueMinimo }}</td>
+        <td>{{ estoqueBaixo(p) ? '⚠️ Estoque baixo' : 'OK' }}</td>
+        <td>
+          <a [routerLink]="['/editar', p.id]">Editar</a>
+          <button (click)="excluir(p)">Excluir</button>
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>

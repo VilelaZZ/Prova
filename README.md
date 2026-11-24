@@ -140,6 +140,6 @@ Projeto desenvolvido em equipe durante o Hackathon Full Stack.
 
 **Integrantes:**
 
-- Lucas Fernandes Vilela
-- Millene Soares de Carvalho
-- Pedro Henrique Alves Gonçalves
+- Lucas Fernandes Vilela (Acabou esquecendo de conectar a conta dele, e os commits foram com essa conta: estudantevaio ) / Java
+- Millene Soares de Carvalho / Angular
+- Pedro Henrique Alves Gonçalves / Expo

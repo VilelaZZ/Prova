@@ -1,0 +1,35 @@
+
+:host {
+  display: block;
+  padding: 25px;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+h1 {
+  color: #005c6e;
+}
+
+input {
+  padding: 8px;
+  width: 280px;
+  max-width: 90%;
+}
+
+button {
+  background: #005c6e;
+  color: white;
+  border: none;
+  padding: 9px 14px;
+  margin-right: 8px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:hover {
+  background: #004653;
+}
+
+form {
+  margin-bottom: 20px;
+}
